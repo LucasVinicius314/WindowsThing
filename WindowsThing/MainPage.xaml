@@ -9,7 +9,7 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d"
-  >
+  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
   <Page.Resources>
     <DataTemplate x:Key="ContactListViewTemplate" x:DataType="local:ProcessData">
       <TextBlock Text="{x:Bind Name}" x:Phase="1" Margin="0,5,0,5" />
