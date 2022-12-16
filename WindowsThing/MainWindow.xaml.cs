@@ -10,6 +10,8 @@ namespace WindowsThing
         public MainWindow()
         {
             this.InitializeComponent();
+
+            SetTitleBar(AppTitleBar);
         }
     }
 }
