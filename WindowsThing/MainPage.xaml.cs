@@ -13,9 +13,19 @@ namespace WindowsThing
         {
             this.InitializeComponent();
 
-            var processes = Process.GetProcesses().Select(x => new ProcessData { Name = x.ProcessName });
+            var processGroups = Process.GetProcesses()
+                .Select(x => new ProcessData { Name = x.ProcessName, Pid = x.Id })
+                .GroupBy(x => x.Name, x => x, (key, g) => new ProcessGroupData { Name = key, Processes = g.ToList() })
+                .OrderBy(x => x.Name);
 
-            BaseExample.ItemsSource = processes;
+            BaseExample.ItemsSource = processGroups;
+
+            var h = Process.GetProcesses().Where(x => x.ProcessName == "WinUIGallery.DesktopWap").ToList();
+
+            foreach (var h2 in h)
+            {
+                h2.Kill();
+            }
         }
     }
 }
